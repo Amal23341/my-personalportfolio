@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amal Jandheer - Digital Marketing Specialist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #059669;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e5e7eb;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, var(--surface) 0%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-text .bio {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Skills Section */
+        .skills-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .skill-item {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-category {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-results {
+            background: var(--surface);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-results h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--success);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-results ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .project-results li {
+            margin-bottom: 0.25rem;
+        }
+
+        .project-results li::before {
+            content: "✓ ";
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .experience-item {
+            position: relative;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            margin-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-company {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-duration {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            background: var(--surface);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .cert-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--surface);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Amal Jandheer</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Digital Marketing Specialist</h1>
+                    <p class="subtitle">Driving Growth Through Strategic Digital Campaigns</p>
+                    <p class="bio">
+                        Results-driven marketing professional with proven expertise in digital marketing, content creation, and campaign optimization. Specialized in Google Ads, SEO, social media marketing, and conversion optimization with a track record of delivering measurable results.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                    <div class="contact-info">
+                        <span>📧 amaljandheer123@gmail.com</span>
+                        <span>📱 +91 62821 02620</span>
+                        <span>📍 Bengaluru, Karnataka</span>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-avatar">AJ</div>
+                        <h3>Amal Jandheer</h3>
+                        <p>Digital Strategist</p>
+                        <div class="skills-preview">
+                            <div class="skill-item">
+                                <div class="skill-icon">📊</div>
+                                <h4>Google Ads</h4>
+                                <p>4:1 ROAS</p>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">🔍</div>
+                                <h4>SEO</h4>
+                                <p>Ranking Improvements</p>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">📱</div>
+                                <h4>Social Media</h4>
+                                <p>100K+ Reach</p>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon">✉️</div>
+                                <h4>Email Marketing</h4>
+                                <p>Automation & Follow-ups</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Real client projects showcasing strategic digital marketing campaigns and measurable results</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Decision Homeopathy Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        🏥 Decision Homeopathy
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Website Development • Google Ads • SEO</div>
+                        <h3 class="project-title">Complete Digital Transformation</h3>
+                        <p class="project-description">
+                            Built a comprehensive healthcare website from scratch and implemented a full digital marketing strategy including Google Ads campaigns, SEO optimization, email marketing automation, and content creation.
+                        </p>
+                        <div class="project-results">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Built responsive website from ground up</li>
+                                <li>Generated first client appointments through Google Ads</li>
+                                <li>Implemented email automation for appointment follow-ups</li>
+                                <li>Created and published educational blog content</li>
+                                <li>Improved website visibility through SEO</li>
+                            </ul>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Web Development</span>
+                            <span class="tag">Google Ads</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">Email Marketing</span>
+                            <span class="tag">Content Creation</span>
+                        </div>
+                        <a href="https://decisionhomeopathy-cancercare.com/" class="project-link" target="_blank">
+                            View Website →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coconut Republic Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        🥥 Coconut Republic
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Social Media Marketing • Campaign Strategy</div>
+                        <h3 class="project-title">Viral Launch Campaign</h3>
+                        <p class="project-description">
+                            Created and executed the initial launch campaign for Coconut Republic, focusing on Instagram content that would generate maximum reach and engagement for their brand debut.
+                        </p>
+                        <div class="project-results">
+                            <h4>Outstanding Results:</h4>
+                            <ul>
+                                <li>100,000+ views on launch campaign reel</li>
+                                <li>Significant boost in brand awareness</li>
+                                <li>Major impact on initial sales numbers</li>
+                                <li>Established strong social media presence</li>
+                                <li>Created viral content template for future campaigns</li>
+                            </ul>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Instagram Marketing</span>
+                            <span class="tag">Content Creation</span>
+                            <span class="tag">Launch Strategy</span>
+                            <span class="tag">Viral Marketing</span>
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <a href="http://coconutrepublic.ae/" class="project-link" target="_blank">
+                                Visit Website →
+                            </a>
+                        </div>
+                        <a href="https://www.instagram.com/reel/DB_F_WJvj5Y/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="project-link" target="_blank">
+                            View Viral Reel →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- LILO Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        📱 LILO India
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Multi-Channel Marketing • Brand Growth</div>
+                        <h3 class="project-title">Comprehensive Brand Growth Strategy</h3>
+                        <p class="project-description">
+                            Developed and executed a multi-channel marketing strategy including newsletter campaigns, WhatsApp marketing, push notifications, and Instagram content to build brand trust and drive app engagement.
+                        </p>
+                        <div class="project-results">
+                            <h4>Growth Metrics:</h4>
+                            <ul>
+                                <li>Significant Instagram account growth</li>
+                                <li>Improved app store rankings</li>
+                                <li>Enhanced brand trust and user education</li>
+                                <li>Increased user engagement and retention</li>
+                                <li>Multi-channel content strategy implementation</li>
+                            </ul>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Newsletter Marketing</span>
+                            <span class="tag">WhatsApp Marketing</span>
+                            <span class="tag">Push Notifications</span>
+                            <span class="tag">Instagram Growth</span>
+                            <span class="tag">App Store Optimization</span>
+                        </div>
+                        <a href="https://www.instagram.com/lilo_india/" class="project-link" target="_blank">
+                            View Instagram →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Professional Experience</h2>
+                <p>Building expertise through hands-on marketing roles and continuous learning</p>
+            </div>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Marketing Consultant</div>
+                            <div class="experience-company">Self-Employed</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Providing comprehensive digital marketing solutions to healthcare and e-commerce clients
+                            </div>
+                        </div>
+                        <div class="experience-duration">Jan 2023 - Present</div>
+                    </div>
+                    <ul style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">
+                        <li>• Developed conversion-focused landing pages, increasing lead generation by 25%+</li>
+                        <li>• Executed Google Ads campaigns achieving 4:1 ROAS</li>
+                        <li>• Conducted SEO audits resulting in improved website rankings</li>
+                        <li>• Built complete websites from scratch with integrated marketing strategies</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Marketing Specialist Intern</div>
+                            <div class="experience-company">LILO, Trivandrum</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Innovative e-commerce platform focusing on user trust and engagement
+                            </div>
+                        </div>
+                        <div class="experience-duration">Feb 2025</div>
+                    </div>
+                    <ul style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">
+                        <li>• Planned and executed integrated marketing campaigns</li>
+                        <li>• Conducted market research and competitor analysis</li>
+                        <li>• Managed social media marketing and content production</li>
+                        <li>• Gained expertise in App Store Optimization (ASO)</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Marketing Team Member (Intern)</div>
+                            <div class="experience-company">SASOFT Technologies Pvt Ltd</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Technology company focused on digital solutions and branding
+                            </div>
+                        </div>
+                        <div class="experience-duration">Mar 2024</div>
+                    </div>
+                    <ul style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">
+                        <li>• Boosted branding initiatives resulting in 15% increase in brand awareness</li>
+                        <li>• Executed digital marketing strategies including social media and push notifications</li>
+                        <li>• Conducted market research to identify trends and opportunities</li>
+                        <li>• Developed targeted digital content improving engagement metrics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div style="margin-top: 4rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Education</h3>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Bachelor of Business Administration</div>
+                            <div class="experience-company">GIBS Business School</div>
+                            <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">
+                                Specialization: Marketing and Data Analytics
+                            </div>
+                        </div>
+                        <div class="experience-duration">2022 - 2025</div>
+                    </div>
+                    <div style="color: var(--text-secondary); margin-top: 1rem;">
+                        <strong>Relevant Coursework:</strong> Digital Marketing Strategy, Data Analytics for Marketing, Brand Management
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div style="margin-top: 4rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 2rem; text-align: center;">Certifications</h3>
+                <div class="certifications-grid">
+                    <div class="cert-card">
+                        <div class="cert-icon">📊</div>
+                        <h4>Google Ads Certification</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Google</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">📘</div>
+                        <h4>Facebook Ads & Marketing</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Meta</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">🔍</div>
+                        <h4>Ultimate SEO Training 2024</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">WordPress SEO</p>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-icon">💻</div>
+                        <h4>Digital Marketing Fundamentals</h4>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Google</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Let's Work Together</h2>
+                <p>Ready to drive growth for your brand? Let's discuss how I can help achieve your marketing goals.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info-card">
+                    <h3 style="margin-bottom: 1.5rem;">Get In Touch</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:amaljandheer123@gmail.com" style="color: var(--primary-color);">amaljandheer123@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            <a href="tel:+916282102620" style="color: var(--primary-color);">+91 62821
